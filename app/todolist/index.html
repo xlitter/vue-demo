@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>todo list</title>
+  <style>
+    .clear {
+      display: inline-block;
+      padding: 5px 10px;
+      background-color: #ccc;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper" id="app">
+    <input type="text" v-model="name" v-on:keyup.enter="submit">
+    <ul>
+      <li v-for="item in list">
+        <input type="checkbox" v-model="item.checked" />
+        <div>
+          <span @dblclick="showEdit(item)" v-show="!item.isEdit">{{item.name}}</span>
+          <input type="text" v-model="item.name" v-show="item.isEdit === true" 
+          @blur="cancelEdit(item)" @keyup.enter="cancelEdit(item)"
+          v-todo-focus="item === editItem"
+          >
+        </div>
+        <span @click="del(item)" style="cursor: pointer">X</span>
+      </li>
+    </ul>
+    <span class="clear" @click.prevent="removeSelectedItems(true)">clear selected</span>
+    <span class="clear" @click.prevent="removeSelectedItems(false)">clear unSelected</span>
+    <span class="clear" @click.prevent="clear">clear all</span>
+    <span class="clear" @click="toggleSelected">toggle selected</span>
+  </div>
+
+  <script src="../lib/vue.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "one-var": [
+      2,
+      {
+        "var": "always",
+        "let": "never",
+        "const": "never"
+      }
+    ],
+    "comma-dangle": [
+      2,
+      "never"
+    ],
+    "no-param-reassign": [
+      2,
+      {
+        "props": false
+      }
+    ]
+  },
+  "global": {
+    "Vue": true
+  }
+}
