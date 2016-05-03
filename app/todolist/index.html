@@ -11,13 +11,16 @@
       background-color: #ccc;
       cursor: pointer;
     }
+    [v-cloak]{
+      display: none;
+    }
   </style>
 </head>
 
 <body>
-  <div class="wrapper" id="app">
-    <input type="text" v-model="name" v-on:keyup.enter="submit">
-    <ul>
+  <div class="wrapper" id="app" v-cloak>
+    <input type="text" v-model="name" v-on:keyup.enter="submit" @blur="submit">
+    <ul >
       <li v-for="item in list">
         <input type="checkbox" v-model="item.checked" />
         <div>
