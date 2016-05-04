@@ -23,7 +23,7 @@
     <ul >
       <li v-for="item in list">
         <input type="checkbox" v-model="item.checked" />
-        <div>
+        <div style="display:inline-block;">
           <span @dblclick="showEdit(item)" v-show="!item.isEdit">{{item.name}}</span>
           <input type="text" v-model="item.name" v-show="item.isEdit === true" 
           @blur="cancelEdit(item)" @keyup.enter="cancelEdit(item)"
@@ -39,7 +39,7 @@
     <span class="clear" @click="toggleSelected">toggle selected</span>
   </div>
 
-  <script src="../lib/vue.js"></script>
+  <script src="../../lib/vue.js"></script>
   <script src="index.js"></script>
 </body>
 
