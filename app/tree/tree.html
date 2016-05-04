@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>vue tree</title>
+  <style>
+    .my-tree {}
+    
+    .node {}
+    
+    .node .my-tree {
+      padding-left: 18px;
+    }
+    
+  </style>
+</head>
+
+<body>
+
+  <div id="tree">
+    <my-tree :nodes="nodes"></my-tree>
+  </div>
+
+  <script type="text/html" id="treeTpl">
+    <div class="my-tree">
+      <div class="node" v-for="node in nodes" track-by="$index">
+        <span>{{node.id}}</span>
+        <span>{{node.name}}</span>
+        <my-tree :nodes="node.childrens" v-show="!node._collapse"></my-tree>
+      </div>
+    </div>
+  </script>
+
+  <script src="../../lib/vue.js"></script>
+  <script src="tree.js"></script>
+
+
+</body>
+
+</html>
